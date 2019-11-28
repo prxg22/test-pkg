@@ -33,13 +33,13 @@ jobs:
       - name: build
         run: yarn build
       - uses: prxg22/push-package-version-tag-action@master
-        id: push-tag
+        id: push
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           tag-prefix: v
-      - run: echo ${{steps.push-tag.outpts.created-tag}}
+      - run: echo ${{steps.push.outpts.created-tag}}
       - name: publish
-        if: steps.push-tag.outpts.created-tag
+        if: steps.push.outpts.created-tag
         run: |
           echo //npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}} >> .npmrc
           yarn publish --non-interactive
