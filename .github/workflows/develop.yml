@@ -2,7 +2,7 @@ name: develop CI/CD
 on:
   pull_request:
     branches:
-      - develop
+      - master
 
 jobs:
   continous-integration:
