@@ -1,0 +1,15 @@
+{
+  "name": "test-pkg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:prxg22/test-pkg.git",
+  "author": "prxg22 <prxg22@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "echo write lint scripts",
+    "test": "echo write test scripts",
+    "build": "echo write build scripts",
+    "deploy": "echo write deploy scripts"
+  }
+}
