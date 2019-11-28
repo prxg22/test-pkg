@@ -37,7 +37,7 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           tag-prefix: v
-      - run: echo ${{steps.push.outpts.created-tag}}
+      - run: echo ${{steps.push.outputs.created-tag}}
       - name: publish
         if: steps.push.outpts.created-tag
         run: |
