@@ -29,6 +29,7 @@ jobs:
       - uses: actions/setup-node@v1.1.0
         with:
           version: 12.x
+      - run: yarn install --prod
       - uses: prxg22/push-package-version-tag-action@master
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
