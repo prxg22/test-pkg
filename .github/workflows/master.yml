@@ -39,7 +39,7 @@ jobs:
           tag-prefix: v
       - run: echo ${{steps.push.outputs.created-tag}}
       - name: publish
-        if: steps.push.outpts.created-tag == true
+        if: steps.push.outpts.created-tag == 'true'
         run: |
           echo //npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}} >> .npmrc
           yarn publish --non-interactive
