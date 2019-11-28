@@ -1,6 +1,6 @@
 {
   "name": "@prxg22/test-pkg",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "main": "index.js",
   "repository": "git@github.com:prxg22/test-pkg.git",
   "author": "prxg22 <prxg22@gmail.com>",
