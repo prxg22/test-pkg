@@ -30,12 +30,15 @@ jobs:
         with:
           version: 12.x
       - run: yarn install --prod
+      - name: build
+        run: yarn build
       - uses: prxg22/push-package-version-tag-action@master
         id: push-tag
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           tag-prefix: v
       - if: steps.push-tag.outpts.created-tag
-        run: echo //npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}} >> .npmrc
-      - if: steps.push-tag.outpts.created-tag
-        run: yarn publish --non-interactive
+        run: |
+          echo ${{steps.push-tag.outpts.created-tag}}
+          echo //npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}} >> .npmrc
+          yarn publish --non-interactive
