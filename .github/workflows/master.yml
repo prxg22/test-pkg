@@ -37,8 +37,9 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           tag-prefix: v
-      - if: steps.push-tag.outpts.created-tag
+      - run: echo ${{steps.push-tag.outpts.created-tag}}
+      - name: publish
+        if: steps.push-tag.outpts.created-tag
         run: |
-          echo ${{steps.push-tag.outpts.created-tag}}
           echo //npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}} >> .npmrc
           yarn publish --non-interactive
